@@ -64,7 +64,7 @@ pip install -r requirements.txt
 ```bash
 cp .env.example .env
 ```
-# Измените DB_URL на localhost:5432
+Измените DB_URL на localhost:5432
 
 5. Примените миграции:
 
@@ -77,24 +77,24 @@ alembic upgrade head
 python -m sanic app.server:app --host=0.0.0.0 --port=8000 --dev
 ```
 
-##  Тестовые учетные данные
+###  Тестовые учетные данные
 После применения миграций автоматически создаются:
-# Обычный пользователь
+### Обычный пользователь
 Email: user@test.com
 Password: user123
 Права: просмотр своего профиля, счетов и платежей
-# Администратор
+### Администратор
 Email: admin@test.com
 Password: admin123
 Права: управление пользователями (CRUD), просмотр всех счетов
 ##  API Endpoints
-# Аутентификация
+### Аутентификация
 POST /auth/login — получить JWT-токен
-# Пользователь (требуется Bearer token)
+### Пользователь (требуется Bearer token)
 GET /users/me — получить свой профиль
 GET /users/me/accounts — список своих счетов
 GET /users/me/payments — история платежей
-# Администратор (требуется Bearer token + is_admin=true)
+### Администратор (требуется Bearer token + is_admin=true)
 GET /admin/users — список всех пользователей со счетами
 POST /admin/users — создать пользователя
 PUT /admin/users/<id> — обновить пользователя
